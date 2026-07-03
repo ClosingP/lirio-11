@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #28231e;
+  --alabaster: #f7f4ee;
+  --champagne: #c9b394;
+  --champagne-deep: #9a8567;
+  --taupe: #807368;
+
+  --background: var(--alabaster);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--alabaster);
+  --muted: #ece8e1;
+  --muted-foreground: var(--taupe);
+  --border: #ddd6cc;
+  --input: #cfc7bb;
+  --ring: var(--champagne-deep);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: var(--champagne);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--taupe);
+    font-weight: 500;
+  }
+
+  .image-zoom {
+    overflow: hidden;
+  }
+  .image-zoom img {
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .image-zoom:hover img {
+    transform: scale(1.05);
+  }
+}

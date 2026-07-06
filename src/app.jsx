@@ -7,10 +7,9 @@ const { heroUrl, gallery, specs, features, appliances } = listing;
 /**
  * MAKE.COM WEBHOOK URL
  * ------------------------------------------------------------------
- * Replace with the real webhook URL from your Make.com scenario.
- * Found in: Make.com → Laurel 160 scenario → Webhook module → copy URL
+ * Found in: Make.com → Lirio 11 — Lead Capture scenario → Webhook module
  */
-const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/jytmt6odw1mdudz39ck5n7r76k6x1apl";
+const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/9odlsn5hgb9wdo2stfy9lzv3sdqjmeli";
 
 export default function App() {
   const [lightbox, setLightbox] = useState(null);

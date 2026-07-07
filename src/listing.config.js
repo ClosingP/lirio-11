@@ -29,7 +29,7 @@ export const listing = {
   // ── Branding ──
   name: "LIRIO 11",
   nameAccent: "",
-  tagline: "A Distinctive Residence in Las Ceibas",
+  tagline: "",
   location: "Las Ceibas · Lake Chapala",
   price: "MXN $7,250,000",
 

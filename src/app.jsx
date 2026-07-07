@@ -101,8 +101,12 @@ function Hero({ onOpenVideo }) {
         </h1>
         <div className="mt-8 flex flex-col md:flex-row items-center gap-3 md:gap-4 text-sm md:text-base font-light tracking-[0.2em] uppercase">
           <span>{listing.price}</span>
-          <span className="hidden md:block h-px w-8 bg-alabaster/50" />
-          <span>{listing.tagline}</span>
+          {listing.tagline && (
+            <>
+              <span className="hidden md:block h-px w-8 bg-alabaster/50" />
+              <span>{listing.tagline}</span>
+            </>
+          )}
         </div>
         <a
           href="#contact"

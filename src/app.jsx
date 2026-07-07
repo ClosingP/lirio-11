@@ -258,15 +258,10 @@ function Location() {
         <div className="relative aspect-square w-full overflow-hidden border border-alabaster/10">
           <iframe
             title={`${listing.name} location map`}
-            src={`https://www.openstreetmap.org/export/embed.html?bbox=${loc.mapBbox}&layer=mapnik`}
+            src={`https://www.google.com/maps?q=${encodeURIComponent(loc.address)}&output=embed`}
             className="absolute inset-0 h-full w-full grayscale invert opacity-80"
             loading="lazy"
           />
-          <div className="absolute inset-0 pointer-events-none bg-ink/20" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none">
-            <div className="w-3 h-3 rounded-full bg-champagne ring-4 ring-champagne/30" />
-            <span className="mt-3 eyebrow text-alabaster bg-ink/70 px-3 py-1">{listing.name}</span>
-          </div>
         </div>
       </div>
     </section>

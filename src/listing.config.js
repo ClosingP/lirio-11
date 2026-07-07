@@ -97,13 +97,13 @@ export const listing = {
     headline: "Las Ceibas — Lake Chapala.",
     description:
       "An exclusive gated community nestled near the shores of Lake Chapala, Mexico's largest freshwater lake. Residents enjoy a tranquil setting with easy access to the cultural village of Ajijic and the amenities of Chapala town.",
+    address: "Carretera Pte. 515, Las Ceibas, 45920 Ajijic, Jal., Mexico",
     nearby: [
       { label: "Ajijic village center", detail: "10 min drive" },
       { label: "Lake Chapala waterfront", detail: "5 min drive" },
       { label: "Chapala town center", detail: "12 min drive" },
       { label: "Guadalajara Int'l Airport", detail: "55 min drive" },
     ],
-    mapBbox: "-103.33,20.26,-103.21,20.34",
   },
 
   // ── Agent ──

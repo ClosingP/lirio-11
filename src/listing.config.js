@@ -110,7 +110,6 @@ export const listing = {
   agent: {
     name: "Gabriela Hernandez",
     brokerage: "Interlago Realty Group",
-    brokerageLogoUrl: "https://interlagorealty.com/wp-content/uploads/2025/07/logo-interlago-2-2.webp",
     email: "info@interlagorealty.com",
     phone: "+52 33 3570 2034",
     whatsapp: "https://wa.me/5213335702034",

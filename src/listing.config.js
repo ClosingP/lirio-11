@@ -84,7 +84,6 @@ export const listing = {
     { src: "https://lh3.googleusercontent.com/d/1fuL78WKhCj6e1Dpjbb2bqn9fZk31nGSa", alt: "Entrance — exterior view" },
     { src: "https://lh3.googleusercontent.com/d/1SWJxSIFm8Wo3Ny9X5hl3WwnIl22bI_kK", alt: "Terrace — garden view" },
     { src: "https://lh3.googleusercontent.com/d/1wo1ptxSMtQgZfA4cJl3q2rwE97EfCCb9", alt: "Living room" },
-    { src: "https://lh3.googleusercontent.com/d/166Kjp1rniGsJYO-OmZszOSWPQtzI0lfd", alt: "Living room — dining area" },
     { src: "https://lh3.googleusercontent.com/d/1OqkJp11Z_dVdpFPNpLZQ3MvFiq1_nVvd", alt: "Kitchen" },
     { src: "https://lh3.googleusercontent.com/d/1aBUyUvVstk8ZIJkydzN0I6D-yKRF4zRQ", alt: "Primary bedroom" },
     { src: "https://lh3.googleusercontent.com/d/1k-oiVk7YnBSwlr8fmyEL751Gwgd5Um4I", alt: "Bedroom" },

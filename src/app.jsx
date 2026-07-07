@@ -424,9 +424,18 @@ function Footer() {
     <footer className="border-t border-border bg-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="font-serif text-2xl tracking-wider">{listing.name}</div>
-        <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase text-center">
-          {listing.footer.representedBy}
-        </p>
+        <div className="flex flex-col items-center gap-3">
+          {listing.agent.brokerageLogoUrl && (
+            <img
+              src={listing.agent.brokerageLogoUrl}
+              alt={listing.agent.brokerage}
+              className="h-8 w-auto object-contain"
+            />
+          )}
+          <p className="text-xs text-muted-foreground tracking-[0.2em] uppercase text-center">
+            {listing.footer.representedBy}
+          </p>
+        </div>
         <p className="text-xs text-muted-foreground tracking-wider">
           © {new Date().getFullYear()} All rights reserved
         </p>

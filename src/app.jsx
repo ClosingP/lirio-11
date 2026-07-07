@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { X, MapPin, ChevronRight } from "lucide-react";
+import { X, MapPin, ChevronRight, PlayCircle } from "lucide-react";
 import { listing } from "./listing.config.js";
 
 const { heroUrl, gallery, specs, features, appliances } = listing;
@@ -11,8 +11,16 @@ const { heroUrl, gallery, specs, features, appliances } = listing;
  */
 const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/9odlsn5hgb9wdo2stfy9lzv3sdqjmeli";
 
+/**
+ * PROPERTY WALKTHROUGH VIDEO
+ * ------------------------------------------------------------------
+ * YouTube video ID only (from the watch?v= URL).
+ */
+const WALKTHROUGH_VIDEO_ID = "ah5YhNhWEzk";
+
 export default function App() {
   const [lightbox, setLightbox] = useState(null);
+  const [videoOpen, setVideoOpen] = useState(false);
 
   useEffect(() => {
     document.title = listing.seo.title;
@@ -21,16 +29,16 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = lightbox !== null ? "hidden" : "";
+    document.body.style.overflow = lightbox !== null || videoOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [lightbox]);
+  }, [lightbox, videoOpen]);
 
   return (
     <main className="bg-background text-foreground">
       <Nav />
-      <Hero />
+      <Hero onOpenVideo={() => setVideoOpen(true)} />
       <SpecsBar />
       <Story />
       <Gallery onOpen={setLightbox} />
@@ -53,6 +61,8 @@ export default function App() {
           onNext={() => setLightbox((i) => (i + 1) % gallery.length)}
         />
       )}
+
+      {videoOpen && <VideoModal onClose={() => setVideoOpen(false)} />}
     </main>
   );
 }
@@ -73,7 +83,7 @@ function Nav() {
   );
 }
 
-function Hero() {
+function Hero({ onOpenVideo }) {
   return (
     <section id="top" className="relative h-screen w-full overflow-hidden">
       <img
@@ -101,6 +111,13 @@ function Hero() {
           Schedule a Private Tour
           <ChevronRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
         </a>
+        <button
+          onClick={onOpenVideo}
+          className="mt-6 group inline-flex items-center gap-2 text-[0.7rem] tracking-[0.32em] uppercase text-alabaster/80 hover:text-alabaster transition-colors duration-300"
+        >
+          <PlayCircle className="h-4 w-4" strokeWidth={1.2} />
+          Property Walkthrough
+        </button>
       </div>
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-alabaster/60 text-[0.65rem] tracking-[0.4em] uppercase animate-fade-in-slow">
         Scroll
@@ -417,6 +434,43 @@ function Footer() {
       </div>
       <div className="h-20 lg:h-0" />
     </footer>
+  );
+}
+
+function VideoModal({ onClose }) {
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key === "Escape") onClose();
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center px-4 animate-fade-in-slow"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-6 right-6 text-white/70 hover:text-white p-2"
+        aria-label="Close"
+      >
+        <X className="h-6 w-6" strokeWidth={1.2} />
+      </button>
+      <div
+        className="w-full max-w-4xl aspect-video"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <iframe
+          src={`https://www.youtube.com/embed/${WALKTHROUGH_VIDEO_ID}?autoplay=1`}
+          title={`${listing.name} — Property Walkthrough`}
+          className="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    </div>
   );
 }
 
